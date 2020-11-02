@@ -12,6 +12,10 @@ export class ShowDepartmentComponent implements OnInit {
   ActivateAddEdit = false;
   dep: any;
 
+  DepartmentIdFilter = '';
+  DepartmentNameFilter = '';
+  DepartmentListWithoutFilter: any[] = [];
+
   constructor(private service: SharedService) {
   }
 
@@ -22,6 +26,7 @@ export class ShowDepartmentComponent implements OnInit {
   refreshDepList(): any {
     this.service.getDepList().subscribe(res => {
       this.DepartmentList = res;
+      this.DepartmentListWithoutFilter = res;
     });
   }
 
@@ -55,5 +60,26 @@ export class ShowDepartmentComponent implements OnInit {
     } else {
       return null;
     }
+  }
+  FilterFn(): any {
+    const DepartmentIdFilter = this.DepartmentIdFilter;
+    const DepartmentNameFilter = this.DepartmentNameFilter;
+    this.DepartmentList = this.DepartmentListWithoutFilter.filter(el => {
+      return el.DepartmentId.toString().toLowerCase().includes(
+        DepartmentIdFilter.toString().toLowerCase()
+      ) &&
+        el.DepartmentName.toString().toLowerCase().includes(
+          DepartmentNameFilter.toString().toLowerCase()
+        );
+    });
+  }
+  sortResult(prop, asc): any {
+    this.DepartmentList = this.DepartmentListWithoutFilter.sort((a, b) => {
+      if (asc) {
+        return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? - 1 : 0);
+      } else {
+        return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? - 1 : 0);
+      }
+    })
   }
 }

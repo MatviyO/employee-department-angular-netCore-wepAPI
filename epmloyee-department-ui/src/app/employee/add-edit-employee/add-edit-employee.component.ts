@@ -37,10 +37,11 @@ export class AddEditEmployeeComponent implements OnInit {
 
   addEmp(): any {
     const value = {
-      DepartmentId: this.EmployeeId,
-      DepartmentName: this.EmployeeName,
+      EmployeeId: this.EmployeeId,
+      EmployeeName: this.EmployeeName,
       Department: this.Department,
-      DateOfJoining: this.DateOfJoining
+      DateOfJoining: this.DateOfJoining,
+      PhotoFileName: this.PhotoFileName,
     };
     this.service.addEmployee(value).subscribe(res => {
       alert(res.toString());
@@ -49,8 +50,11 @@ export class AddEditEmployeeComponent implements OnInit {
   }
   updateEmp(): any {
     const value = {
-      DepartmentId: this.EmployeeId,
-      DepartmentName: this.EmployeeName
+      EmployeeId: this.EmployeeId,
+      EmployeeName: this.EmployeeName,
+      Department: this.Department,
+      DateOfJoining: this.DateOfJoining,
+      PhotoFileName: this.PhotoFileName,
     };
     this.service.updateEmployee(value).subscribe(res => {
       alert(res.toString());

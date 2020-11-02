@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class SharedService {
   readonly ApiUrl = 'http://localhost:53918/api';
-  readonly PhotoUrl = 'http://localhost:53918/Photos';
+  readonly PhotoUrl = 'http://localhost:53918/Photos/';
 
   constructor(private http: HttpClient) { }
 

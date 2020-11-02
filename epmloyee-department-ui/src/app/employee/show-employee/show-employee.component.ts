@@ -11,7 +11,7 @@ export class ShowEmployeeComponent implements OnInit {
   EmployeeList: any[] = [];
   ModalTitle: string;
   ActivateAddEdit = false;
-  dep: any;
+  emp: any;
 
   constructor(private service: SharedService) {
   }
@@ -27,7 +27,7 @@ export class ShowEmployeeComponent implements OnInit {
   }
 
   addClick(): any {
-    this.dep = {
+    this.emp = {
       EmployeeId: 0,
       EmployeeName: '',
       Department: '',
@@ -45,7 +45,7 @@ export class ShowEmployeeComponent implements OnInit {
   }
 
   editClick(item: any): any {
-    this.dep = item;
+    this.emp = item;
     this.ModalTitle = 'Edit Employee';
     this.ActivateAddEdit = true;
   }

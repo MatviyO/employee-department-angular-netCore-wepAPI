@@ -43,7 +43,7 @@
 
 <!-- Modal -->
 <div class="modal fade"  data-backdrop="static" data-keyboard="false" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-center modal-xl" role="document">
+  <div class="modal-dialog  modal-lg modal-dialog-center " role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
@@ -53,7 +53,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-add-edit-employee [dep]="dep" *ngIf="ActivateAddEdit" ></app-add-edit-employee>
+        <app-add-edit-employee [dep]="emp" *ngIf="ActivateAddEdit" ></app-add-edit-employee>
       </div>
 
     </div>
