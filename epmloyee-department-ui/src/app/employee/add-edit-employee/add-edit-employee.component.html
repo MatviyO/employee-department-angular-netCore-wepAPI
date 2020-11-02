@@ -1,10 +1,27 @@
-<div class="form-group row">
-  <label class="col-sm-2 col-form-label">Employee Name</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" [(ngModel)]="EmployeeName"
-           placeholder="Enter Department Name">
+<div class="d-flex flex-row bd-highlight mb-3">
+  <div class="form-group row" style="width: 70%;">
+    <label class="col-sm-2 col-form-label">Employee Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="EmployeeName"
+             placeholder="Enter Employee Name">
+    </div>
+    <label class="col-sm-2 col-form-label">Department</label>
+    <div class="col-sm-10">
+      <select class="form-control" [(ngModel)]="Department">
+        <option >--Select--</option>
+        <option *ngFor="let el of DepartmentList">{{el}}</option>
+      </select>
+    </div>
+
+    <label class="col-sm-2 col-form-label"> Date of joining</label>
+    <div class="col-sm-10">
+      <input type="date" [(ngModel)]="DateOfJoining">
+    </div>
+  </div>
+  <div class="ml-3 bd-highlight" style="width: 30%;">
+    <img [src]="PhotoFilePath" [alt]="PhotoFileName" height="250px" width="200px">
+    <input type="file" (change)="uploadPhoto($event)" class="mt-2">
   </div>
 </div>
-
-<button (click)="addEmp()" *ngIf="dep.DepartmentId == 0" class="btn btn-primary bg-success" >Add</button>
-<button (click)="updateEmp()" *ngIf="dep.DepartmentId != 0" class="btn btn-primary bg-success" >Update</button>
+<button (click)="addEmp()" *ngIf="dep.DepartmentId == 0" class="btn btn-primary bg-success">Add</button>
+<button (click)="updateEmp()" *ngIf="dep.DepartmentId != 0" class="btn btn-primary bg-success">Update</button>
