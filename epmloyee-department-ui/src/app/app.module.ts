@@ -9,6 +9,8 @@ import { AddEditDepartmentComponent } from './department/add-edit-department/add
 import { EmployeeComponent } from './employee/employee.component';
 import { ShowEmployeeComponent } from './employee/show-employee/show-employee.component';
 import { AddEditEmployeeComponent } from './employee/add-edit-employee/add-edit-employee.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { AddEditEmployeeComponent } from './employee/add-edit-employee/add-edit-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -134,6 +134,7 @@ namespace WebAPI.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK, table);
         }
+        [Route("api/Employee/SaveFile")]
         public string SaveFile()
         {
             try
