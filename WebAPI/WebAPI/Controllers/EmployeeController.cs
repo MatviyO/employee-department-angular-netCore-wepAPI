@@ -16,8 +16,8 @@ namespace WebAPI.Controllers
         public HttpResponseMessage Get()
         {
             string query = @"
-                        select EmployeeId,EmployeeName,Department
-                        conver(varchar(10),DateOfJoining, 120) as DateOfJoining,
+                        select EmployeeId,EmployeeName,Department,
+                        convert(varchar(10),DateOfJoining, 120) as DateOfJoining,
                          PhotoFileName   
                             from 
                              dbo.Employee";
